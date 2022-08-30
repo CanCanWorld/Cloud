@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_baseline_phone_android_24"
-            android:hint="P7777"
+            android:hint="PHONE"
             android:inputType="number"
             android:lines="1" />
     </com.google.android.material.textfield.TextInputLayout>
