@@ -6,6 +6,8 @@
         <entry key="..\:/Users/smq/AndroidStudioProjects/Cloud/app/src/main/res/drawable/ic_baseline_fingerprint_24.xml" value="0.2155" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Cloud/app/src/main/res/layout/activity_home.xml" value="0.29635416666666664" />
         <entry key="..\:/Users/smq/AndroidStudioProjects/Cloud/app/src/main/res/layout/activity_main.xml" value="0.33469202898550726" />
+        <entry key="..\:/Users/smq/AndroidStudioProjects/Cloud/app/src/main/res/layout/fragment_recent_song.xml" value="0.39492753623188404" />
+        <entry key="..\:/Users/smq/AndroidStudioProjects/Cloud/app/src/main/res/layout/item_recent_song.xml" value="0.2265625" />
       </map>
     </option>
   </component>

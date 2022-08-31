@@ -2,6 +2,7 @@ package com.zrq.cloud
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import com.zrq.cloud.databinding.ActivityHomeBinding
 import com.zrq.cloud.databinding.ActivityMainBinding
 
@@ -13,10 +14,16 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         homeBinding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(homeBinding.root)
+        initData()
         initEvent()
     }
 
+    private fun initData() {
+        val list = ArrayList<Fragment>()
+        list.add(RecentSongFragment.newInstance())
+        homeBinding.viewPager.adapter = ViewPagerAdapter(this, list)
+    }
+
     private fun initEvent() {
-        homeBinding.viewPager.adapter
     }
 }

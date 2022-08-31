@@ -1,9 +1,10 @@
-package com.zrq.cloud.bean.recent
+package com.zrq.cloud.bean
 
 data class RecentSong(
     val code: Int = 0,
     val data: Data,
-    val message: String = ""
+    val message: String = "",
+    val al: Al
 )
 
 data class M(
