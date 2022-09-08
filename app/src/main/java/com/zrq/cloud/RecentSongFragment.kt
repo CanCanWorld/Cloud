@@ -7,9 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.gson.Gson
-import com.zrq.cloud.bean.Al
 import com.zrq.cloud.bean.RecentSong
-import com.zrq.cloud.cache.Song
 import com.zrq.cloud.databinding.FragmentRecentSongBinding
 import com.zrq.cloud.util.Constants.BASE_URL
 import com.zrq.cloud.util.Constants.RECORD_SONG
@@ -47,9 +45,9 @@ class RecentSongFragment : Fragment() {
             override fun onResponse(call: Call, response: Response) {
                 Log.d(TAG, "response: $response")
                 if (response.body != null) {
-                    val song =
-                        Gson().fromJson(response.body?.string(), Song::class.java)
-                    Log.d(TAG, "loginInfo: $song")
+//                    val song =
+//                        Gson().fromJson(response.body?.string(), RecentSong::class.java)
+//                    Log.d(TAG, "loginInfo: $song")
                 }
             }
         })

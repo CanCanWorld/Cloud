@@ -29,29 +29,27 @@ class MainActivity : AppCompatActivity() {
     private fun initEvent() {
         mainBinding.btnLogin.setOnClickListener {
             //http://192.168.31.15:3000/login/cellphone?phone=17860487013&password=zhang123...
-//            val phone = mainBinding.etPhone.text.toString()
-//            val password = mainBinding.etPassword.text.toString()
-//            val url = "$BASE_URL$LOGIN_NUMBER?phone=$phone&password=$password"
-//            val request: Request = Request.Builder()
-//                .url(url)
-//                .method("GET", null)
-//                .build()
-//            OkHttpClient().newCall(request).enqueue(object : Callback {
-//                override fun onFailure(call: Call, e: IOException) {
-//
-//                }
-//
-//                override fun onResponse(call: Call, response: Response) {
-//                    Log.d(TAG, "response: $response")
-//                    if (response.body != null) {
-//                        val loginInfo =
-//                            Gson().fromJson(response.body?.string(), Login::class.java)
-//                        Log.d(TAG, "loginInfo: $loginInfo")
-//                    }
-//                }
-//            })
+            val phone = mainBinding.etPhone.text.toString()
+            val password = mainBinding.etPassword.text.toString()
+            val url = "$BASE_URL$LOGIN_NUMBER?phone=$phone&password=$password"
+            val request: Request = Request.Builder()
+                .url(url)
+                .method("GET", null)
+                .build()
+            OkHttpClient().newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
 
+                }
 
+                override fun onResponse(call: Call, response: Response) {
+                    Log.d(TAG, "response: $response")
+                    if (response.body != null) {
+                        val loginInfo =
+                            Gson().fromJson(response.body?.string(), Login::class.java)
+                        Log.d(TAG, "loginInfo: $loginInfo")
+                    }
+                }
+            })
         }
     }
 }
