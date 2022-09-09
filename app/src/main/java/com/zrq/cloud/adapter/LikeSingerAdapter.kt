@@ -1,4 +1,4 @@
-package com.zrq.cloud
+package com.zrq.cloud.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context

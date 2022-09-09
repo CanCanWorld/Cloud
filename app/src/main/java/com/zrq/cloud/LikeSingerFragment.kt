@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
+import com.zrq.cloud.adapter.LikeSingerAdapter
 import com.zrq.cloud.bean.DataItem
 import com.zrq.cloud.bean.LikeSinger
 import com.zrq.cloud.bean.Login

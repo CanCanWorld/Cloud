@@ -3,8 +3,8 @@ package com.zrq.cloud
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.zrq.cloud.adapter.ViewPagerAdapter
 import com.zrq.cloud.databinding.ActivityHomeBinding
-import com.zrq.cloud.databinding.ActivityMainBinding
 
 class HomeActivity : AppCompatActivity() {
 

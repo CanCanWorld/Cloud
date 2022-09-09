@@ -9,11 +9,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
+import com.zrq.cloud.adapter.ItemSongAdapter
 import com.zrq.cloud.bean.Search
 import com.zrq.cloud.databinding.FragmentSearchSongBinding
 import com.zrq.cloud.util.Constants.BASE_URL
 import com.zrq.cloud.util.Constants.SEARCH_SONG
-import com.zrq.cloud.util.NetUtil
 import okhttp3.*
 import java.io.IOException
 
