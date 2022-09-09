@@ -20,8 +20,8 @@ class HomeActivity : AppCompatActivity() {
 
     private fun initData() {
         val list = ArrayList<Fragment>()
-        list.add(RecentSongFragment.newInstance())
         list.add(LikeSingerFragment.newInstance())
+        list.add(SearchSongFragment.newInstance())
         homeBinding.viewPager.adapter = ViewPagerAdapter(this, list)
     }
 

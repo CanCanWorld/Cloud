@@ -1,13 +1,16 @@
 package com.zrq.cloud.util
 
+import android.util.Log
 import com.google.gson.Gson
+import com.zrq.cloud.bean.Search
 import okhttp3.*
 import java.io.IOException
+import java.lang.reflect.Type
 
 object NetUtil {
 
-    fun <E> netGet(url: String, clazz: Class<E>): E? {
-        var fromJson: E? = null
+    fun <E> netGet(url: String, type:Type): String {
+        var string = ""
         val request: Request = Request.Builder()
             .url(url)
             .method("GET", null)
@@ -18,10 +21,11 @@ object NetUtil {
             }
 
             override fun onResponse(call: Call, response: Response) {
-                fromJson = Gson().fromJson(response.body?.string(), clazz)
+                string = response.body?.string().toString()
+//                fromJson = Gson().fromJson(string, type)
             }
 
         })
-        return fromJson
+        return string
     }
 }
