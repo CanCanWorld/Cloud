@@ -6,10 +6,13 @@ import android.os.Looper
 import android.os.Message
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.zrq.cloud.adapter.ItemSongAdapter
+import com.zrq.cloud.adapter.OnItemClickListener
 import com.zrq.cloud.bean.Search
 import com.zrq.cloud.databinding.FragmentSearchSongBinding
 import com.zrq.cloud.util.Constants.BASE_URL
@@ -17,7 +20,7 @@ import com.zrq.cloud.util.Constants.SEARCH_SONG
 import okhttp3.*
 import java.io.IOException
 
-class SearchSongFragment : BaseFragment<FragmentSearchSongBinding>() {
+class SearchSongFragment : BaseFragment<FragmentSearchSongBinding>() , OnItemClickListener{
 
     override fun providedViewBinding(
         inflater: LayoutInflater,
@@ -44,7 +47,7 @@ class SearchSongFragment : BaseFragment<FragmentSearchSongBinding>() {
         list = ArrayList()
         val manager = LinearLayoutManager(requireContext())
         mBinding.rvSearchResult.layoutManager = manager
-        adapter = ItemSongAdapter(requireContext(), list)
+        adapter = ItemSongAdapter(requireContext(), list, this)
         mBinding.rvSearchResult.adapter = adapter
     }
 
@@ -82,5 +85,13 @@ class SearchSongFragment : BaseFragment<FragmentSearchSongBinding>() {
     companion object {
         fun newInstance() = SearchSongFragment()
         const val TAG = "SearchSongFragment"
+    }
+
+    override fun onClick(view: View) {
+        Navigation.findNavController(requireActivity(), R.id.fragment_container).navigate(R.id.playFragment)
+    }
+
+    override fun onLongClick(view: View): Boolean {
+        return true
     }
 }

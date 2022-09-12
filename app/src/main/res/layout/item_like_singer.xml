@@ -11,7 +11,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_margin="10dp"
-        app:shapeAppearance="@style/circle_head" />
+        app:shapeAppearance="@style/circle_img" />
 
     <TextView
         android:id="@+id/tv_singer"

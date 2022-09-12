@@ -3,21 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainActivity">
-
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.zrq.cloud.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
-    <activity
-        android:id="@+id/homeActivity"
-        android:name="com.zrq.cloud.HomeActivity"
-        android:label="activity_home"
-        tools:layout="@layout/activity_home" />
+    app:startDestination="@id/searchSongFragment">
     <fragment
         android:id="@+id/searchSongFragment"
         android:name="com.zrq.cloud.SearchSongFragment"
         android:label="fragment_search_song"
         tools:layout="@layout/fragment_search_song" />
+    <fragment
+        android:id="@+id/playFragment"
+        android:name="com.zrq.cloud.PlayFragment"
+        android:label="fragment_play"
+        tools:layout="@layout/fragment_play" />
 </navigation>

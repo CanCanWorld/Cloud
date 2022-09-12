@@ -1,8 +1,11 @@
 package com.zrq.cloud
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.zrq.cloud.adapter.ViewPagerAdapter
 import com.zrq.cloud.databinding.ActivityHomeBinding
 
@@ -13,18 +16,15 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         homeBinding = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(homeBinding.root)
         initData()
         initEvent()
     }
 
     private fun initData() {
-        val list = ArrayList<Fragment>()
-        list.add(LikeSingerFragment.newInstance())
-        list.add(SearchSongFragment.newInstance())
-        homeBinding.viewPager.adapter = ViewPagerAdapter(this, list)
     }
 
     private fun initEvent() {
     }
+
+//    override fun onSupportNavigateUp(): Boolean = findNavController(R.id.fragment_container).navigateUp()
 }

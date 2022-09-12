@@ -51,7 +51,7 @@ class LikeSingerFragment : BaseFragment<FragmentLikeSingerBinding>() {
                 .build()
             OkHttpClient().newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
-
+                    Log.d(TAG, "onFailure: ")
                 }
 
                 override fun onResponse(call: Call, response: Response) {
@@ -82,7 +82,7 @@ class LikeSingerFragment : BaseFragment<FragmentLikeSingerBinding>() {
                 .build()
             OkHttpClient().newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: java.io.IOException) {
-
+                    Log.d(TAG, "onFailure: ")
                 }
 
                 override fun onResponse(call: Call, response: Response) {
