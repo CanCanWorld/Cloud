@@ -23,13 +23,15 @@ class ItemSongAdapter(
         if (list != null) {
             holder.binding.apply {
                 tvSongName.text = list!![position].name.toString()
-                tvSinger.text = list!![position].artists[0].name.toString()
+                var singerStr = ""
+                list!![position].artists.forEach { singerStr += "/$it" }
+                tvSinger.text = singerStr
                 tvAlbum.text = list!![position].album.name.toString()
                 root.setOnClickListener {
-                    onItemClickListener.onClick(it)
+                    onItemClickListener.onClick(it, position)
                 }
                 root.setOnLongClickListener {
-                    onItemClickListener.onLongClick(it)
+                    onItemClickListener.onLongClick(it, position)
                 }
             }
         }

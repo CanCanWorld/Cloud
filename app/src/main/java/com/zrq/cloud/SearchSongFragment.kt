@@ -20,7 +20,7 @@ import com.zrq.cloud.util.Constants.SEARCH_SONG
 import okhttp3.*
 import java.io.IOException
 
-class SearchSongFragment : BaseFragment<FragmentSearchSongBinding>() , OnItemClickListener{
+class SearchSongFragment : BaseFragment<FragmentSearchSongBinding>(), OnItemClickListener {
 
     override fun providedViewBinding(
         inflater: LayoutInflater,
@@ -29,7 +29,7 @@ class SearchSongFragment : BaseFragment<FragmentSearchSongBinding>() , OnItemCli
         return FragmentSearchSongBinding.inflate(inflater, container, false)
     }
 
-    var list: ArrayList<Search.ResultDTO.SongsDTO>? = null
+    var list = ArrayList<Search.ResultDTO.SongsDTO>()
     private lateinit var adapter: ItemSongAdapter
 
     @SuppressLint("NotifyDataSetChanged")
@@ -44,7 +44,6 @@ class SearchSongFragment : BaseFragment<FragmentSearchSongBinding>() , OnItemCli
     }
 
     override fun initData() {
-        list = ArrayList()
         val manager = LinearLayoutManager(requireContext())
         mBinding.rvSearchResult.layoutManager = manager
         adapter = ItemSongAdapter(requireContext(), list, this)
@@ -71,10 +70,8 @@ class SearchSongFragment : BaseFragment<FragmentSearchSongBinding>() , OnItemCli
                     val result = Gson().fromJson(string, Search::class.java)
                     Log.d(TAG, "onResponse: $string")
                     if (result != null) {
-                        if (list != null) {
-                            list!!.clear()
-                            list!!.addAll(result.result.songs)
-                        }
+                        list.clear()
+                        list.addAll(result.result.songs)
                         handle.sendMessage(Message().apply { what = 1 })
                     }
                 }
@@ -87,11 +84,13 @@ class SearchSongFragment : BaseFragment<FragmentSearchSongBinding>() , OnItemCli
         const val TAG = "SearchSongFragment"
     }
 
-    override fun onClick(view: View) {
-        Navigation.findNavController(requireActivity(), R.id.fragment_container).navigate(R.id.playFragment)
+    override fun onClick(view: View, position: Int) {
+        mainModel.nowPlaying.postValue(list[position])
+        Navigation.findNavController(requireActivity(), R.id.fragment_container)
+            .navigate(R.id.playFragment)
     }
 
-    override fun onLongClick(view: View): Boolean {
+    override fun onLongClick(view: View, position: Int): Boolean {
         return true
     }
 }
